@@ -6266,14 +6266,14 @@ void DrawingOptions::SCAL_OP(QJsonObject & tmp, QString type)
         tmp.remove("Operations");
     }
     transArray = tmpJsObj["OperationsList"].toArray();
-    if(type == "_PAR")
+    if(type == "PAR")
     {
         tmpArray.append("SCAL_PAR_ALL");
-        tmpArray.append(ui.SxParlineEdit->text());
-        tmpArray.append(ui.SyParlineEdit->text());
-        tmpArray.append(ui.SzParlineEdit->text());
+        tmpArray.append((ui.SxParlineEdit->text()).toDouble());
+        tmpArray.append((ui.SyParlineEdit->text()).toDouble());
+        tmpArray.append((ui.SzParlineEdit->text()).toDouble());
     }
-    else if(type == "_ISO")
+    else if(type == "ISO")
     {
         tmpArray.append("SCAL_ISO_ALL");
         tmpArray.append(ui.SxIsolineEdit->text());
@@ -6371,7 +6371,23 @@ void DrawingOptions::on_UndoPushButton_2_clicked()
 }
 void DrawingOptions::on_SxParScrollBar_valueChanged(int sx)
 {
-    ui.SxParlineEdit->setText(QString::number(float(sx-50)/60,'f', 2));
+    int size=MathmodRef->ParObjet->OperationsTree.size();
+    for(int i=0; i<size; i++)
+    {
+        QStringList OpType=(MathmodRef->ParObjet->OperationsTree[size-1-i]->OpType).split("_",Qt::SkipEmptyParts);
+
+        if(OpType.contains("PAR") && OpType.contains("SCAL"))
+        {
+            //std::shared_ptr<GenOperation> basePtr = std::make_shared<ParScal>();
+            // Cast the first element
+            if (auto derivedPtr = std::dynamic_pointer_cast<ParScal>(MathmodRef->ParObjet->OperationsTree[size-1-i]))
+            {
+                float Scx=(derivedPtr)->Scx*float(sx)/10.0;
+                ui.SxParlineEdit->setText(QString::number(Scx,'f', 2));
+                return;
+            }
+        }
+    }
 }
 void DrawingOptions::on_SyParScrollBar_valueChanged(int sy)
 {
@@ -6383,9 +6399,7 @@ void DrawingOptions::on_SzParScrollBar_valueChanged(int sz)
 }
 void DrawingOptions::on_SxIsoScrollBar_valueChanged(int sx)
 {
-    int size=MathmodRef->ParObjet->OperationsTree.size();
-    float SxOrigin=MathmodRef->ParObjet->OperationsTree[size-1];
-    ui.SxIsolineEdit->setText(QString::number(float(sx-50)/60,'f', 2));
+
 }
 void DrawingOptions::on_SyIsoScrollBar_valueChanged(int sy)
 {
@@ -6398,7 +6412,7 @@ void DrawingOptions::on_SzIsoScrollBar_valueChanged(int sz)
 void DrawingOptions::on_SaveScIsoButton_clicked()
 {
     QJsonObject CurrentJsonObject = MathmodRef->RootObjet.CurrentJsonObject;
-    SCAL_OP(CurrentJsonObject, "_ISO");
+    SCAL_OP(CurrentJsonObject, "ISO");
     ApplyOperations(CurrentJsonObject);
 }
 void DrawingOptions::on_SaveScParButton_clicked()

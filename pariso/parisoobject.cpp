@@ -35,6 +35,8 @@ void ParThickness::loadOperation(const QJsonArray& ptr)
     BoumdarySurfs          = ptr[3].toBool();
     ThExpression           = ptr[4].toString();
 };
+ParScal::ParScal(){};
+ParScal::~ParScal(){};
 void ParScal::loadOperation(const QJsonArray& ptr)
 {
     OpType                 = ptr[0].toString();

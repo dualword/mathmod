@@ -37,6 +37,7 @@ class GenOperation
 {
 public:
     virtual ~GenOperation() = default;
+    virtual float fx() const {return 1.0;};
     virtual void loadOperation(const QJsonArray&){};
 public:
     QString OpType="NO_OP";
@@ -56,6 +57,7 @@ class ParScal : public GenOperation
 public:
     ParScal();
     ~ParScal();
+    float fx() const override { return Scx; }
 public:
     float Scx=1.0, Scy=1.0, Scz=1.0;
     void loadOperation(const QJsonArray&) override;
