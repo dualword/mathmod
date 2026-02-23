@@ -44,15 +44,22 @@ void ParScal::loadOperation(const QJsonArray& ptr)
     Scy                    = ptr[2].toDouble();
     Scz                    = ptr[3].toDouble();
 };
+
+
 IsoThickness::IsoThickness(){}
 IsoThickness::~IsoThickness(){}
-
 void IsoThickness::loadOperation(const QJsonArray&)
 {
 }
+IsoScal::IsoScal(){}
+IsoScal::~IsoScal(){}
+void IsoScal::loadOperation(const QJsonArray&)
+{
+}
+
+
 MasterThread::MasterThread() {}
 MasterThread::~MasterThread() {}
-
 void MasterThread::clearTextureInfos()
 {
     RGBT_STR = VRGBT_STR = GRADIENT_STR = NOISE_STR="";
