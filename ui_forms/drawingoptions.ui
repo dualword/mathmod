@@ -438,7 +438,7 @@
                  <enum>QFrame::NoFrame</enum>
                 </property>
                 <property name="currentIndex">
-                 <number>2</number>
+                 <number>1</number>
                 </property>
                 <widget class="QWidget" name="page"/>
                 <widget class="QWidget" name="page_4">
@@ -503,7 +503,7 @@
                         <enum>QTabWidget::Rounded</enum>
                        </property>
                        <property name="currentIndex">
-                        <number>2</number>
+                        <number>0</number>
                        </property>
                        <widget class="QWidget" name="FormulasPage1_2">
                         <attribute name="title">
@@ -2233,14 +2233,14 @@ li.checked::marker { content: &quot;\2612&quot;; }
                             <enum>Qt::LeftToRight</enum>
                            </property>
                            <property name="currentIndex">
-                            <number>1</number>
+                            <number>0</number>
                            </property>
                            <widget class="QWidget" name="IsoThickness">
                             <property name="geometry">
                              <rect>
                               <x>0</x>
                               <y>0</y>
-                              <width>314</width>
+                              <width>547</width>
                               <height>111</height>
                              </rect>
                             </property>
@@ -2844,7 +2844,7 @@ li.checked::marker { content: &quot;\2612&quot;; }
                      <enum>Qt::LeftToRight</enum>
                     </property>
                     <property name="currentIndex">
-                     <number>2</number>
+                     <number>0</number>
                     </property>
                     <widget class="QWidget" name="tab_2">
                      <attribute name="title">
@@ -3702,14 +3702,14 @@ li.checked::marker { content: &quot;\2612&quot;; }
                          </sizepolicy>
                         </property>
                         <property name="currentIndex">
-                         <number>1</number>
+                         <number>0</number>
                         </property>
                         <widget class="QWidget" name="ParamThickness">
                          <property name="geometry">
                           <rect>
                            <x>0</x>
                            <y>0</y>
-                           <width>316</width>
+                           <width>521</width>
                            <height>121</height>
                           </rect>
                          </property>
