@@ -5480,29 +5480,13 @@ void DrawingOptions::loadOperations(QJsonObject CurrentJsObject)
             QStringList TypeInfos= Operation[0].toString().split("_",Qt::SkipEmptyParts);
             if(TypeInfos.contains("PAR"))
             {
-                if(TypeInfos.contains("THICK"))
-                {
-                    MathmodRef->ParObjet->OperationsTree.push_back(std::make_shared<ParThickness>());
-                    MathmodRef->ParObjet->OperationsTree[MathmodRef->ParObjet->OperationsTree.size()-1]->loadOperation(Operation);
-                }
-                if(TypeInfos.contains("SCAL"))
-                {
-                    MathmodRef->ParObjet->OperationsTree.push_back(std::make_shared<ParScal>());
-                    MathmodRef->ParObjet->OperationsTree[MathmodRef->ParObjet->OperationsTree.size()-1]->loadOperation(Operation);
-                }
+                MathmodRef->ParObjet->OperationsTree.push_back(std::make_shared<ParThickness>());
+                MathmodRef->ParObjet->OperationsTree[MathmodRef->ParObjet->OperationsTree.size()-1]->loadOperation(Operation);
             }
             else if(TypeInfos.contains("ISO"))
                 {
-                    if(TypeInfos.contains("THICK"))
-                    {
-                        MathmodRef->IsoObjet->OperationsTree.push_back(std::make_shared<IsoThickness>());
-                        MathmodRef->IsoObjet->OperationsTree[MathmodRef->IsoObjet->OperationsTree.size()-1]->loadOperation(Operation);
-                    }
-                    if(TypeInfos.contains("SCAL"))
-                    {
-                        MathmodRef->IsoObjet->OperationsTree.push_back(std::make_shared<IsoScal>());
-                        MathmodRef->IsoObjet->OperationsTree[MathmodRef->IsoObjet->OperationsTree.size()-1]->loadOperation(Operation);
-                    }
+                    MathmodRef->IsoObjet->OperationsTree.push_back(std::make_shared<IsoThickness>());
+                    MathmodRef->IsoObjet->OperationsTree[MathmodRef->IsoObjet->OperationsTree.size()-1]->loadOperation(Operation);
                 }
         }
     }
@@ -6292,9 +6276,9 @@ void DrawingOptions::SCAL_OP(QJsonObject & tmp, QString type)
     else if(type == "ISO")
     {
         tmpArray.append("SCAL_ISO_ALL");
-        tmpArray.append((ui.SxIsolineEdit->text()).toDouble());
-        tmpArray.append((ui.SyIsolineEdit->text()).toDouble());
-        tmpArray.append((ui.SzIsolineEdit->text()).toDouble());
+        tmpArray.append(ui.SxIsolineEdit->text());
+        tmpArray.append(ui.SyIsolineEdit->text());
+        tmpArray.append(ui.SzIsolineEdit->text());
     }
     transArray.append(tmpArray);
     tmpJsObj["OperationsList"] = transArray;
