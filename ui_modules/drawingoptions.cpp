@@ -6368,7 +6368,6 @@ void DrawingOptions::on_RegenerateButtonPAR_clicked()
         ApplyOperations(CurrentJsonObject);
     }
 }
-
 void DrawingOptions::on_RedoPushButton_1_clicked()
 {
     on_actionRedo_triggered();
@@ -6415,7 +6414,6 @@ void DrawingOptions::on_SzParScrollBar_valueChanged(int sz)
 }
 void DrawingOptions::on_SxIsoScrollBar_valueChanged(int sx)
 {
-
 }
 void DrawingOptions::on_SyIsoScrollBar_valueChanged(int sy)
 {
