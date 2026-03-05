@@ -6174,6 +6174,8 @@ void DrawingOptions::ApplyParOperation(QJsonObject & OriginalObj, QJsonArray & O
         // End Skip
         if(TypeInfos.contains("THICK"))
             ApplyThiParOperation(OriginalObj, Operation);
+        if(TypeInfos.contains("SCAL"))
+            ApplyScaParOperation(OriginalObj, Operation);
     }
 }
 //Takes the operations list in mathobject and apply them to "OriginalObj" script
