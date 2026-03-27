@@ -5674,9 +5674,9 @@ void DrawingOptions::ApplyScaParOperation(QJsonObject & OriginalObj, QJsonArray 
     QStringList TypeInfos= Operation[0].toString().split("_",Qt::SkipEmptyParts);
     bool ALL= TypeInfos.contains("ALL");
     bool IncludeComponent = false;
-    Sx =  Operation[1].toString();
-    Sy =  Operation[2].toString();
-    Sz =  Operation[3].toString();
+    Sx =  QString::number(Operation[1].toDouble());
+    Sy =  QString::number(Operation[2].toDouble());
+    Sz =  QString::number(Operation[3].toDouble());
 
     tmp2 = OriginalObj["Param3D"].toObject();
     FxArray = tmp2["Fx"].toArray();
