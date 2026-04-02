@@ -2233,14 +2233,14 @@ li.checked::marker { content: &quot;\2612&quot;; }
                             <enum>Qt::LeftToRight</enum>
                            </property>
                            <property name="currentIndex">
-                            <number>0</number>
+                            <number>1</number>
                            </property>
                            <widget class="QWidget" name="IsoThickness">
                             <property name="geometry">
                              <rect>
                               <x>0</x>
                               <y>0</y>
-                              <width>547</width>
+                              <width>314</width>
                               <height>111</height>
                              </rect>
                             </property>
@@ -3709,7 +3709,7 @@ li.checked::marker { content: &quot;\2612&quot;; }
                           <rect>
                            <x>0</x>
                            <y>0</y>
-                           <width>316</width>
+                           <width>521</width>
                            <height>121</height>
                           </rect>
                          </property>
