@@ -5750,11 +5750,9 @@ void DrawingOptions::ApplyScaParOperation(QJsonObject & OriginalObj, QJsonArray 
         if(!ALL)
             IncludeComponent = ApplyOpToComponent(i, TypeInfos);
         QString I=QString::number(ThCount)+"_"+QString::number(i);
-
         FctArray.append("FFFx_Orig"+I+"="+FxArray.at(i).toString());
         FctArray.append("FFFy_Orig"+I+"="+FyArray.at(i).toString());
         FctArray.append("FFFz_Orig"+I+"="+FzArray.at(i).toString());
-
         QString fx=FxArray.at(i).toString();
         QString fy=FyArray.at(i).toString();
         QString fz=FzArray.at(i).toString();
@@ -6071,7 +6069,6 @@ void DrawingOptions::ApplyThiParOperation(QJsonObject & OriginalObj, QJsonArray 
                 NewGridArray.append(GridArray.at(2*i));
                 NewGridArray.append(GridArray.at(2*i+1));
             }
-
             NewFxArray.append("FFFx_Right"+I+"(u,v,t)");
             NewFyArray.append("FFFy_Right"+I+"(u,v,t)");
             NewFzArray.append("FFFz_Right"+I+"(u,v,t)");
@@ -6087,7 +6084,6 @@ void DrawingOptions::ApplyThiParOperation(QJsonObject & OriginalObj, QJsonArray 
                 NewGridArray.append(GridArray.at(2*i));
                 NewGridArray.append(GridArray.at(2*i+1));
             }
-
             NewFxArray.append("FFFx_Front"+I+"(u,v,t)");
             NewFyArray.append("FFFy_Front"+I+"(u,v,t)");
             NewFzArray.append("FFFz_Front"+I+"(u,v,t)");
@@ -6103,7 +6099,6 @@ void DrawingOptions::ApplyThiParOperation(QJsonObject & OriginalObj, QJsonArray 
                 NewGridArray.append(GridArray.at(2*i));
                 NewGridArray.append(GridArray.at(2*i+1));
             }
-
             NewFxArray.append("FFFx_Back"+I+"(u,v,t)");
             NewFyArray.append("FFFy_Back"+I+"(u,v,t)");
             NewFzArray.append("FFFz_Back"+I+"(u,v,t)");
